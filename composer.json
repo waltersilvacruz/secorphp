@@ -1,6 +1,6 @@
 {
-    "name": "equipe-web/secorphp",
-    "description": "Middleware de Segurança para aplicações Web do TCE/MT",
+    "name": "waltersilvacruz/secorphp",
+    "description": "Middleware para aplicações Web",
     "keywords": ["tcemt", "seguranca", "secorp"],
     "license": "MIT",
     "authors": [
