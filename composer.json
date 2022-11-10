@@ -1,0 +1,22 @@
+{
+    "name": "walters/secorphp",
+    "description": "Middleware de Segurança para aplicações Web do TCE/MT",
+    "keywords": ["tcemt", "seguranca", "secorp"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Walter Cruz",
+            "email": "walters@tce.mt.gov.br",
+            "homepage": "http://www.tce.mt.gov.br/"
+        }
+    ],
+    "require": {
+        "romanpitak/php-rest-client": "^1.2"
+    },
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "TCEMT\\": "src/"
+        }
+    }
+}
