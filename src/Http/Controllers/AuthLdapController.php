@@ -10,13 +10,9 @@ use Session;
 use TCEMT\Helpers\API;
 use Validator;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthLdapController extends Controller
 {
-    use AuthenticatesUsers {
-        logout as defaultLogout;
-    }
 
     /**
      * Handle an authentication attempt.

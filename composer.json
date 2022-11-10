@@ -1,5 +1,5 @@
 {
-    "name": "walters/secorphp",
+    "name": "equipe-web/secorphp",
     "description": "Middleware de Segurança para aplicações Web do TCE/MT",
     "keywords": ["tcemt", "seguranca", "secorp"],
     "license": "MIT",

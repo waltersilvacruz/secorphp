@@ -3,12 +3,24 @@ TCEMT SECORPHP
 
 # Instalação
 
+### Requerimentos
+- PHP 7.2.5+
+- Laravel 7.0+
+
+####Importante:
+para versões anteriores do Laravel (6 ou inferior), utilize a versão 3.0.0
+
+```
+composer require equipe-web/secorphp:3.0.0
+```
+
+
 Adicione o repositório no arquivo "composer.json":
 ```
 "repositories": [
     {
         "type": "vcs",
-        "url": "https://gitlab.tce.mt.gov.br/walters/secorphp.git"
+        "url": "https://gitlab.tce.mt.gov.br/equipe-web/secorphp.git"
     }
 ],
 ```
@@ -16,7 +28,7 @@ Adicione o repositório no arquivo "composer.json":
 
 Instale o componente via comando do composer:
 ```
-composer require walters/secorphp
+composer require equipe-web/secorphp
 ```
 
 Abra o arquivo `config/app.php` e adicione na lista de providers:
