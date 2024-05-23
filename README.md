@@ -4,41 +4,46 @@ TCEMT SECORPHP
 # Instalação
 
 ### Requerimentos
-- PHP 7.2.5+
-- Laravel 7.0+
-
-####Importante:
-para versões anteriores do Laravel (6 ou inferior), utilize a versão 3.0.0
-
-```
-composer require equipe-web/secorphp:3.0.0
-```
-
-
-Adicione o repositório no arquivo "composer.json":
-```
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://gitlab.tce.mt.gov.br/equipe-web/secorphp.git"
-    }
-],
-```
+- PHP 8.2+
+- Laravel 11.0+
 
 
 Instale o componente via comando do composer:
 ```
-composer require equipe-web/secorphp
+composer require waltersilvacruz/secorphp
 ```
 
-Abra o arquivo `config/app.php` e adicione na lista de providers:
+### Compatibilidade com versões antigas do Laravel:
+para versões anteriores do Laravel (versões 7, 8, 9 ou 10), utilize a versão 3 do SECORPHP:
+
+```
+composer require waltersilvacruz/secorphp:^3
+```
+
+# Configuração
+
+``` 
+*ATENÇÃO*: este tutorial de configuração é específico para a versão 4 do SECORPHP, 
+que é compatível com a versão 11 ou superior do Laravel. Para versões anteriores, é 
+recomendado utilizar as instruções no README da versão.
+```
+Abra o arquivo `bootstrap/providers.php` e adicione na lista de providers:
 ```
 TCEMT\Providers\SecorphpServiceProvider::class
 ```
 
-e ainda no `config/app.php` adicione à lista de aliases:
+No arquivo `bootstrap/app.php` adicione à lista de aliases:
 ```
 'Secorphp'  => TCEMT\Facades\Secorphp::class
+
+// exemplo:
+...
+->withMiddleware(function (Middleware $middleware) {
+    $middleware->alias([
+        'Secorphp'  => TCEMT\Facades\Secorphp::class
+    ]);
+})
+...
 ```
 
 limpe o cache de configurações
@@ -134,7 +139,7 @@ class MeuController extends Controller {
 
 ## Uso em templates do Blade
 
-O `Secorphp` conta com implementa duas diretivas para fazer a verificação de permissão: `@recurso` e `@acao`. Veja os exemplos:
+O `Secorphp` conta com implementa duas diretivas para fazer a verificação de permissão: `@recurso`, `@if_recurso`, `@acao` e `@if_acao`. Veja os exemplos:
 ```
 <h1>Pode acessar video?</h1>
 @if_recurso("VIDEO")

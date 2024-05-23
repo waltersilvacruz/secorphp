@@ -2,7 +2,7 @@
 
 namespace TCEMT\Providers;
 
-use Blade;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class SecorphpServiceProvider extends ServiceProvider {
@@ -30,11 +30,10 @@ class SecorphpServiceProvider extends ServiceProvider {
 
         // Register Middleware
         $this->app['router']->middlewareGroup('web', [
-            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
             \TCEMT\Http\Middleware\Secorphp::class,
         ]);
 
@@ -44,26 +43,17 @@ class SecorphpServiceProvider extends ServiceProvider {
             return "<?php echo (\\TCEMT\\Helpers\\SecorphpStatic::allow('$recurso') ? '' : 'disabled=\"disabled\"'); ?>";
         });
 
-        Blade::directive('if_recurso', function($expression) {
-            $recurso = str_replace(['(',')',' ',"'",'"'], '', $expression);
-            return "<?php if(\\TCEMT\\Helpers\\SecorphpStatic::allow('$recurso')) : ?>";
-        });
-
-        Blade::directive('endif_recurso', function() {
-            return "<?php endif; ?>";
+        Blade::if('if_recurso', function(string $recurso) {
+            return \TCEMT\Helpers\SecorphpStatic::allow($recurso);
         });
 
         Blade::directive('acao', function($expression) {
             list($recurso, $acao) = explode(',',str_replace(['(',')',' ',"'",'"'], '', $expression));
             return "<?php echo (\\TCEMT\\Helpers\\SecorphpStatic::allow('$recurso','$acao') ? '' : 'disabled=\"disabled\"'); ?>";
         });
-        Blade::directive('if_acao', function($expression) {
-            list($recurso, $acao) = explode(',',str_replace(['(',')',' ',"'",'"'], '', $expression));
-            return "<?php if(\\TCEMT\\Helpers\\SecorphpStatic::allow('$recurso','$acao')) : ?>";
-        });
 
-        Blade::directive('endif_acao', function() {
-            return "<?php endif; ?>";
+        Blade::if('if_acao', function(string $recurso, string $acao) {
+            return \TCEMT\Helpers\SecorphpStatic::allow($recurso, $acao);
         });
     }
 
@@ -86,5 +76,4 @@ class SecorphpServiceProvider extends ServiceProvider {
     public function provides() {
         return ['secorphp'];
     }
-
 }
