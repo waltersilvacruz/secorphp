@@ -14,5 +14,4 @@ class Secorphp extends Facade {
     protected static function getFacadeAccessor() {
         return 'secorphp';
     }
-
 }
