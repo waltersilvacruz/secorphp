@@ -1,6 +1,6 @@
 {
     "name": "waltersilvacruz/secorphp",
-    "version": "4.0.0",
+    "version": "4.0.3",
     "description": "Middleware para aplicações Web",
     "keywords": ["tcemt", "seguranca", "secorp"],
     "license": "MIT",
