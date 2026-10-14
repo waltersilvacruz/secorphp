@@ -20,6 +20,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | API Token endpoint
+    |--------------------------------------------------------------------------
+    | Endpoint para recuperar o token de acesso
+    */
+    'api_token_endpoint' => env('SECORPHP_API_TOKEN_ENDPOINT', '/token'),
+
+
+    /*
+    |--------------------------------------------------------------------------
     | API development Context
     |--------------------------------------------------------------------------
     | Contexto da api no ambiente de desenvolvimento

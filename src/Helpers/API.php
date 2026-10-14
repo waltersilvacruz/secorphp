@@ -23,7 +23,7 @@ class API
 
         $data = 'grant_type=client_credentials';
 
-        $api_request = $client->newRequest('/token', 'POST', $data);
+        $api_request = $client->newRequest($settings['api_token_endpoint'], 'POST', $data);
         $api_response = $api_request->getResponse();
         $result = $api_response->getInfo();
         if ($result->http_code === 200) {
