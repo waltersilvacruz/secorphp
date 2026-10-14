@@ -1,6 +1,6 @@
 {
     "name": "waltersilvacruz/secorphp",
-    "version": "4.0.4",
+    "version": "4.0.5",
     "description": "Middleware para aplicações Web",
     "keywords": ["tcemt", "seguranca", "secorp"],
     "license": "MIT",
@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.0",
         "laravel/framework": "^9.0",
         "romanpitak/php-rest-client": "^1.2"
     },
