@@ -67,6 +67,7 @@ AUTH_USER_LOGIN_FIELD=logon # campo referente ao logon do usuário
 #configuração de autorização do Secorp
 SECORPHP_ENVIRONMENT=production/development # define o ambiente
 SECORPHP_API_BASE_URL=https://am.tce.mt.gov.br # url base do API Manager
+SECORPHP_API_TOKEN_ENDPOINT=/token #endpoint para recuperar o token de autenticação
 SECORPHP_API_PROD_CONTEXT=/secorp/authorization/producao #contexto no ambiente de produção
 SECORPHP_API_DEV_CONTEXT=/secorp/authorization/desenvolvimento # contexto no ambiente de desenvolvimento
 SECORPHP_API_CONSUMER_KEY=chave # chave pública do sistema (fornecida pelo API Manager)
